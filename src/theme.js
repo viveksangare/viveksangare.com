@@ -10,6 +10,7 @@ export const commonTypography = {
 };
 
 export const lightTheme = createTheme({
+    mode: 'light',
     typography: commonTypography.body,
     palette: {
         primary: {
@@ -23,8 +24,9 @@ export const lightTheme = createTheme({
         MuiAppBar: {
             styleOverrides: {
                 root: {
-                    color: "#17252a",
-                    backgroundColor: '#def2f1', // Light blue button for dark mode
+                    // color: "#17252a",
+                    backgroundColor: "rgba(222, 242, 241,0.2)",
+                    backdropFilter: "blur(3px)"
                 },
             },
         },
@@ -39,6 +41,7 @@ export const lightTheme = createTheme({
 });
 
 export const darkTheme = createTheme({
+    mode: 'dark',
     typography: commonTypography.body,
     palette: {
         primary: {
@@ -52,7 +55,9 @@ export const darkTheme = createTheme({
         MuiAppBar: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#17252a', // Light blue button for dark mode
+                    backgroundColor: 'rgba(23, 37, 42, 0)',
+                    // backgroundColor: 'red',
+                    backdropFilter: "blur(3px)"
                 },
             },
         },
