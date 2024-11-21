@@ -74,18 +74,18 @@ const PhysicsCanvas = () => {
     for (let i = 0; i < 60; i++) {
       const x = Common.random(0, dimensions.width);
       const y = Common.random(0, dimensions.height);
-      // const s =
-      //   Common.random() > 0.6 ? Common.random(10, 80) : Common.random(4, 60);
-      // const polygonNumber = Common.random(3, 4);
+      const s =
+        Common.random() > 0.6 ? Common.random(10, 80) : Common.random(4, 60);
+      const polygonNumber = Common.random(3, 4);
 
-      // const body = Bodies.polygon(x, y, polygonNumber, s, {
-      //   mass: s / 10,
-      //   friction: 0,
-      //   frictionAir: 0.02,
-      //   angle: Math.round(Math.random() * 360),
-      //   render: { fillStyle: "#222222", strokeStyle: "#000000", lineWidth: 2 },
-      // });
-      // World.add(engine.world, body);
+      const body = Bodies.polygon(x, y, polygonNumber, s, {
+        mass: s / 10,
+        friction: 0,
+        frictionAir: 0.02,
+        angle: Math.round(Math.random() * 360),
+        render: { fillStyle: "#222222", strokeStyle: "#000000", lineWidth: 2 },
+      });
+      World.add(engine.world, body);
 
       const r = Common.random(0, 1);
       const circle1 = Bodies.circle(x, y, Common.random(2, 8), {

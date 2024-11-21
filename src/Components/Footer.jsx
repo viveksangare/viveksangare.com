@@ -2,32 +2,26 @@ import { Box, Typography, IconButton, Container } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { lightTheme, darkTheme, commonTypography } from "../theme.js";
 
 const Footer = () => {
-  const theme = useTheme(); 
+  const theme = useTheme();
 
   return (
     <Box
       component="footer"
       sx={{
-        zIndex: "1100",
-        bottom: 0,
-        backgroundColor: lightTheme.palette.primary.dark,
-        color: "#fff",
+        backgroundColor: theme.palette.primary.main,
+        color: "#17252a",
       }}
     >
       <Container>
         <Box
           sx={{
             display: "flex",
-
             flexDirection: { xs: "column", sm: "row" },
             justifyContent: "space-between",
             alignItems: "center",
-            padding: "10px 20px",
-            // color: "#fff",
-
+            padding: "8px 1rem",
             width: "100%",
           }}
         >

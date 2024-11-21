@@ -3,10 +3,12 @@ import { createRoot } from "react-dom/client";
 import "./styles/index.css";
 import App from "./App.jsx";
 import { ThemeProvider } from "./Contexts/ThemeContext.jsx";
+import { CssBaseline } from "@mui/material";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider>
+      <CssBaseline />
       <App />
     </ThemeProvider>
   </StrictMode>

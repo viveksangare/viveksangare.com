@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -14,8 +13,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import "../styles/Header.css";
-import { lightTheme, commonTypography } from "../theme.js";
-import { Container } from "@mui/material";
+import { lightTheme } from "../theme.js";
+import { Container, useTheme } from "@mui/material";
 
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
@@ -23,15 +22,33 @@ const navItems = ["Home", "About", "Contact"];
 export default function Header(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-
+  const theme = useTheme();
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+      <Typography
+        variant="h3"
+        component="div"
+        sx={{
+          flexGrow: 1,
+          display: { xs: "block", sm: "none" },
+          fontFamily: theme.typography.logo.fontFamily,
+          fontSize: "2.2rem",
+          py: 1,
+          height:"56px",
+          maxHeight: "56px",
+          backgroundColor: theme.palette.background.default
+        }}
+      >
+        <Box display="inline">
+          <Typography variant="span" sx={{ color: "primary.main" }}>
+            {"// "}
+          </Typography>
+          <span>Vivek S.</span>
+        </Box>
       </Typography>
       <Divider />
       <List>
@@ -51,9 +68,22 @@ export default function Header(props) {
 
   return (
     <Box component="header">
-      <Box sx={{ display: "flex", minHeight: { xs: "56px", sm: "64px" } }}>
-        <CssBaseline />
-        <AppBar component="nav">
+      <Box
+        sx={{
+          display: "flex",
+          minHeight: { xs: "56px", sm: "64px" },
+          backgroundColor: theme.palette.background.default,
+        }}
+      >
+        <AppBar
+          component="nav"
+          sx={{
+            backgroundColor: theme.palette.background.header,
+            color: theme.palette.text.primary,
+            backdropFilter: "blur(10px)",
+            transition: "all 250ms cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+        >
           <Container>
             <Toolbar>
               <IconButton
@@ -71,15 +101,12 @@ export default function Header(props) {
                 sx={{
                   flexGrow: 1,
                   display: { xs: "none", sm: "block" },
-                  fontFamily: commonTypography.logo.fontFamily,
+                  fontFamily: theme.typography.logo.fontFamily,
                   fontSize: "3rem",
                 }}
               >
                 <Box display="inline">
-                  <Typography
-                    variant="span"
-                    sx={{ color: lightTheme.palette.primary.main }}
-                  >
+                  <Typography variant="span" sx={{ color: "primary.main" }}>
                     {"// "}
                   </Typography>
                   <span>Vivek S.</span>
@@ -87,7 +114,7 @@ export default function Header(props) {
               </Typography>
               <Box sx={{ display: { xs: "none", sm: "block" } }}>
                 {navItems.map((item) => (
-                  <Button key={item} sx={{ color: "#fff" }}>
+                  <Button key={item} sx={{ color: theme.palette.text.primary }}>
                     {item}
                   </Button>
                 ))}

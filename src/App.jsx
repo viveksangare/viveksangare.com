@@ -7,10 +7,10 @@ import { lightTheme, darkTheme } from "./theme.js";
 import Home from "./Components/Home.jsx";
 import { useThemeContext } from "./Contexts/ThemeContext.jsx";
 import { useTheme } from "@emotion/react";
+import cuteProgrammer from "./assets/Programmer-cuate.svg";
 
 function App() {
   const { mode, toggleTheme } = useThemeContext(); // Access current theme mode
-  const theme = useTheme();
 
   return (
     <>
@@ -19,19 +19,15 @@ function App() {
         component="section"
         sx={{
           flexGrow: 1,
-          backgroundColor:
-            mode === "dark"
-              ? theme.palette.primary.dark
-              : theme.palette.primary.light,
         }}
       >
         <Container
           sx={{
-            // display: "flex",
-            height:"100%"
+            minHeight: "100%",
+            // width: "100%",
           }}
         >
-          <Home />
+          {/* <Home /> */}
         </Container>
       </Box>
       <Footer />
