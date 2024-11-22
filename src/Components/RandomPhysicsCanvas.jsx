@@ -8,27 +8,17 @@ const RandomPhysicsCanvas = () => {
   useEffect(() => {
     if (!canvasRef.current) return;
 
-    // const dimensions = {
-    //   width: window.innerWidth,
-    //   height: window.innerHeight,
-    // };
-      
     const container = canvasRef.current.parentElement;
-    const dimensions = {
+
+    const getDimensions = () => ({
       width: container.offsetWidth,
       height: container.offsetHeight,
-    };
+    });
 
-    const {
-      Engine,
-      Render,
-      World,
-      Bodies,
-      Body,
-      Common,
-      Runner,
-      Events,
-    } = Matter;
+    let dimensions = getDimensions();
+
+    const { Engine, Render, World, Bodies, Body, Common, Runner, Events } =
+      Matter;
 
     Matter.use("matter-wrap");
 
@@ -95,15 +85,18 @@ const RandomPhysicsCanvas = () => {
 
     // Resize the canvas on window resize
     const handleResize = () => {
-      dimensions.width = window.innerWidth;
-      dimensions.height = window.innerHeight;
+      dimensions = getDimensions();
+      render.options.width = dimensions.width;
+      render.options.height = dimensions.height;
       render.canvas.width = dimensions.width;
       render.canvas.height = dimensions.height;
+
       Render.lookAt(render, {
         min: { x: 0, y: 0 },
         max: { x: dimensions.width, y: dimensions.height },
       });
     };
+
     window.addEventListener("resize", handleResize);
 
     // Clean up on component unmount

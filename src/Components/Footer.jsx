@@ -1,7 +1,6 @@
-import { Box, Typography, IconButton, Container } from "@mui/material";
+import { Box, Typography, Container, Button } from "@mui/material";
 import { useTheme } from "@emotion/react";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import { navIcons } from "../data.js";
 
 const Footer = () => {
   const theme = useTheme();
@@ -21,7 +20,7 @@ const Footer = () => {
             flexDirection: { xs: "column", sm: "row" },
             justifyContent: "space-between",
             alignItems: "center",
-            padding: "8px 1rem",
+            padding: "8px 0",
             width: "100%",
           }}
         >
@@ -34,23 +33,22 @@ const Footer = () => {
           </Typography>
 
           {/* Right Div */}
-          <Box>
-            <IconButton
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{ color: "#fff" }}
-            >
-              <LinkedInIcon />
-            </IconButton>
-            <IconButton
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{ color: "#fff" }}
-            >
-              <InstagramIcon />
-            </IconButton>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              padding: {xs:"2px",sm:0},
+              flexWrap: "wrap",
+            }}
+          >
+            {navIcons.map((item) => (
+              <Button
+                key={item.name}
+                sx={{ color: theme.palette.text.primary, minWidth: 0 }}
+              >
+                {item.icon}
+              </Button>
+            ))}
           </Box>
         </Box>
       </Container>

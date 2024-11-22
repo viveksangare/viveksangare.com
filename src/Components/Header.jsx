@@ -12,12 +12,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import "../styles/Header.css";
-import { lightTheme } from "../theme.js";
 import { Container, useTheme } from "@mui/material";
+import { navItems, navIcons } from "../data.js";
+import "../styles/Header.css";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+// const navItems = ["Home", "About", "Contact"];
 
 export default function Header(props) {
   const { window } = props;
@@ -26,41 +26,62 @@ export default function Header(props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography
-        variant="h3"
-        component="div"
+    <>
+      <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+        <Typography
+          variant="h3"
+          component="div"
+          sx={{
+            flexGrow: 1,
+            display: { xs: "block", sm: "none" },
+            fontFamily: theme.otherTypographies.logo.fontFamily,
+            fontSize: "2.2rem",
+            py: 1,
+            height: "56px",
+            maxHeight: "56px",
+            backgroundColor: theme.palette.background.default,
+          }}
+        >
+          <Box display="inline">
+            <Typography variant="span" sx={{ color: "primary.main" }}>
+              {"// "}
+            </Typography>
+            <span>Vivek S.</span>
+          </Box>
+        </Typography>
+        <Divider />
+        <List>
+          {navItems.map((item) => (
+            <ListItem key={item.value} disablePadding>
+              <ListItemButton sx={{ textAlign: "center" }}>
+                <ListItemText
+                  primary={item.value}
+                  primaryTypographyProps={{ fontWeight: 600 }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+      <Box
         sx={{
-          flexGrow: 1,
-          display: { xs: "block", sm: "none" },
-          fontFamily: theme.typography.logo.fontFamily,
-          fontSize: "2.2rem",
-          py: 1,
-          height:"56px",
-          maxHeight: "56px",
-          backgroundColor: theme.palette.background.default
+          display: "flex",
+          justifyContent: "center",
+          padding: "8px 16px",
+          flexWrap: "wrap",
         }}
       >
-        <Box display="inline">
-          <Typography variant="span" sx={{ color: "primary.main" }}>
-            {"// "}
-          </Typography>
-          <span>Vivek S.</span>
-        </Box>
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
+        {navIcons.map((item) => (
+          <Button
+            key={item.name}
+            sx={{ color: theme.palette.text.primary, minWidth: 0 }}
+          >
+            {item.icon}
+          </Button>
         ))}
-      </List>
-    </Box>
+      </Box>
+    </>
   );
 
   const container =
@@ -85,7 +106,7 @@ export default function Header(props) {
           }}
         >
           <Container>
-            <Toolbar>
+            <Toolbar >
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -101,8 +122,8 @@ export default function Header(props) {
                 sx={{
                   flexGrow: 1,
                   display: { xs: "none", sm: "block" },
-                  fontFamily: theme.typography.logo.fontFamily,
-                  fontSize: "3rem",
+                  fontFamily: theme.otherTypographies.logo.fontFamily,
+                  fontSize: "2.5rem",
                 }}
               >
                 <Box display="inline">
@@ -114,12 +135,28 @@ export default function Header(props) {
               </Typography>
               <Box sx={{ display: { xs: "none", sm: "block" } }}>
                 {navItems.map((item) => (
-                  <Button key={item} sx={{ color: theme.palette.text.primary }}>
-                    {item}
+                  <Button
+                    key={item.value}
+                    sx={{ color: theme.palette.text.primary, fontWeight: 600 }}
+                  >
+                    {item.value}
                   </Button>
                 ))}
               </Box>
-              <Box display="flex" marginLeft="auto">
+              <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                {navIcons.map((item) => (
+                  <Button
+                    key={item.name}
+                    sx={{ color: theme.palette.text.primary, minWidth: 0 }}
+                  >
+                    {item.icon}
+                  </Button>
+                ))}
+              </Box>
+              <Box
+                display="flex"
+                sx={{ marginLeft: { xs: "auto", sm: "0.5rem" } }}
+              >
                 <input
                   type="checkbox"
                   id="theme-toggler"
@@ -178,10 +215,18 @@ export default function Header(props) {
               keepMounted: true, // Better open performance on mobile.
             }}
             sx={{
-              display: { xs: "block", sm: "none" },
+              display: {
+                xs: "block",
+                sm: "none",
+              },
+              flexDirection: "row",
+              justifyContent: "space-between",
               "& .MuiDrawer-paper": {
                 boxSizing: "border-box",
                 width: drawerWidth,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
               },
             }}
           >

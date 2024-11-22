@@ -30,6 +30,31 @@ const commonTransitions = {
     },
 }
 
+// common overrides
+const commonOverrides = {
+    MuiCssBaseline: {
+        styleOverrides: {
+            '@global': {
+                body: {
+                    transition: "all 250ms cubic-bezier(0.4, 0, 0.2, 1)"
+                },
+            }
+        }
+    },
+    MuiToolbar: {
+        styleOverrides: {
+            root: {
+                paddingLeft: "8px",
+                paddingRight: "8px",
+                "@media (min-width:600px)": {
+                    paddingLeft: "0px",
+                    paddingRight: "0px",
+                },
+            },
+        },
+    },
+}
+
 // global color palettes
 const colors = {
     light: {
@@ -70,9 +95,10 @@ export const lightTheme = createTheme({
             main: colors.light.secondary,
         },
     },
-    typography: commonTypography,
+    typography: { fontFamily: commonTypography.body.fontFamily },
+    otherTypographies: commonTypography,
     transitions: commonTransitions,
-
+    components: commonOverrides
 });
 
 // Create dark mode theme
@@ -95,19 +121,10 @@ export const darkTheme = createTheme({
             main: colors.dark.secondary,
         },
     },
-    typography: commonTypography,
+    typography: { fontFamily: commonTypography.body.fontFamily },
+    otherTypographies: commonTypography,
     transitions: commonTransitions,
-    components: {
-        MuiCssBaseline: {
-            styleOverrides: {
-                '@global': {
-                    body: {
-                        transition: "all 250ms cubic-bezier(0.4, 0, 0.2, 1)"
-                    },
-                }
-            }
-        }
-    }
+    components: commonOverrides
 });
 
 // export const lightTheme = createTheme({

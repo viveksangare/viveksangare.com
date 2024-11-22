@@ -12,9 +12,7 @@
 body,
 #root {
   min-height: 100vh;
-  font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
-  font-style: normal;
 }
 
 #root {
