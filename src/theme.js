@@ -59,6 +59,7 @@ const commonOverrides = {
 const colors = {
     light: {
         background: '#def2f1',  // Main background
+        bubble: '#CDEBEA', //bubble fill color - slight darker than bg
         paper: '#feffff',       // Surface color
         textPrimary: '#17252a', // Primary text
         textSecondary: '#2b7a78', // Secondary text
@@ -67,6 +68,7 @@ const colors = {
     },
     dark: {
         background: '#17252a',  // Main background
+        bubble: '#1B2C32', //bubble fill color - slight lighter than bg
         paper: '#2b7a78',       // Surface color
         textPrimary: '#feffff', // Primary text
         textSecondary: '#def2f1', // Secondary text
@@ -82,7 +84,8 @@ export const lightTheme = createTheme({
         background: {
             default: colors.light.background, // App's main background
             paper: colors.light.paper,       // Surface background
-            header: "rgba(222, 242, 241, 0.2)" //Header background
+            header: "rgba(222, 242, 241, 0.2)", //Header background
+            bubble: colors.light.bubble
         },
         text: {
             primary: colors.light.textPrimary,   // Primary text color
@@ -95,7 +98,21 @@ export const lightTheme = createTheme({
             main: colors.light.secondary,
         },
     },
-    typography: { fontFamily: commonTypography.body.fontFamily },
+    typography: {
+        fontFamily: commonTypography.body.fontFamily,
+        letterSpacing: '0.5px',
+        allVariants: {
+            letterSpacing: '0.5px',
+        },
+        h1: { letterSpacing: '0.5px' },
+        h2: { letterSpacing: '0.5px' },
+        h3: { letterSpacing: '0.5px' },
+        h4: { letterSpacing: '0.5px' },
+        h5: { letterSpacing: '0.5px' },
+        h6: { letterSpacing: '0.5px' },
+        body1: { letterSpacing: '0.5px' },
+        body2: { letterSpacing: '0.5px' },
+    },
     otherTypographies: commonTypography,
     transitions: commonTransitions,
     components: commonOverrides
@@ -108,7 +125,8 @@ export const darkTheme = createTheme({
         background: {
             default: colors.dark.background, // App's main background
             paper: colors.dark.paper,       // Surface background
-            header: "rgba(23, 37, 42, 0.2)" //Header background
+            header: "rgba(23, 37, 42, 0.2)", //Header background
+            bubble: colors.dark.bubble
         },
         text: {
             primary: colors.dark.textPrimary,   // Primary text color
@@ -121,7 +139,21 @@ export const darkTheme = createTheme({
             main: colors.dark.secondary,
         },
     },
-    typography: { fontFamily: commonTypography.body.fontFamily },
+    typography: {
+        fontFamily: commonTypography.body.fontFamily,
+        letterSpacing: '0.5px',
+        allVariants: {
+            letterSpacing: '0.5px',
+        },
+        h1: { letterSpacing: '0.5px' },
+        h2: { letterSpacing: '0.5px' },
+        h3: { letterSpacing: '0.5px' },
+        h4: { letterSpacing: '0.5px' },
+        h5: { letterSpacing: '0.5px' },
+        h6: { letterSpacing: '0.5px' },
+        body1: { letterSpacing: '0.5px' },
+        body2: { letterSpacing: '0.5px' },
+    },
     otherTypographies: commonTypography,
     transitions: commonTransitions,
     components: commonOverrides

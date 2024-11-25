@@ -1,9 +1,13 @@
 import { useEffect, useRef } from "react";
+import { useTheme } from "@emotion/react";
 import Matter from "matter-js";
 import "matter-wrap";
 
 const RandomPhysicsCanvas = () => {
   const canvasRef = useRef(null);
+  const theme = useTheme();
+  const scrollbarWidth =
+    window.innerWidth - document.documentElement.clientWidth;
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -52,12 +56,11 @@ const RandomPhysicsCanvas = () => {
         friction: 0,
         frictionAir: 0.02,
         render: {
-          fillStyle: `#57C7C1`,
-          strokeStyle: `#195d4a`,
-          lineWidth: 2,
+          fillStyle: theme.palette.background.bubble,
+          // strokeStyle: `#195d4a`,
+          // lineWidth: 2,
         },
       });
-
       // Assign an initial random velocity
       Body.setVelocity(body, {
         x: Common.random(-2, 2),
@@ -98,6 +101,7 @@ const RandomPhysicsCanvas = () => {
     };
 
     window.addEventListener("resize", handleResize);
+    handleResize();
 
     // Clean up on component unmount
     return () => {
@@ -108,7 +112,7 @@ const RandomPhysicsCanvas = () => {
       render.canvas.remove();
       render.textures = {};
     };
-  }, []);
+  }, [theme,scrollbarWidth]);
 
   return <div ref={canvasRef}></div>;
 };

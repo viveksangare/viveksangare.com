@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./styles/App.css";
-import { Box, Container, ThemeProvider, useMediaQuery } from "@mui/material";
+import { Box} from "@mui/material";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Home from "./Components/Home.jsx";

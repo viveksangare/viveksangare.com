@@ -132,7 +132,7 @@ const PhysicsCanvas = () => {
         },
       });
 
-      // World.add(engine.world, circle3);
+      World.add(engine.world, circle3);
     }
 
     // Add mouse control for attracting bodies

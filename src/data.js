@@ -27,3 +27,48 @@ export const navIcons = [
         link: "https://github.com/viveksangare",
     },
 ];
+
+// skills
+export const skills = [
+    {
+        name: "Frontend",
+        skills: [
+            { skill: "HTML", expert: true },
+            { skill: "CSS", expert: true },
+            { skill: "JavaScript (JS)", expert: true },
+            { skill: "React", expert: true },
+            { skill: "Redux", expert: true },
+            { skill: "Bootstrap", expert: true },
+            { skill: "Tailwind", expert: true },
+            { skill: "WordPress", expert: true },
+        ]
+    },
+    {
+        name: "Backend",
+        skills: [
+            { skill: "Node.js", expert: true },
+            { skill: "Express", expert: true },
+        ]
+    },
+    {
+        name: "Database",
+        skills: [
+            { skill: "MongoDB", expert: true },
+        ]
+    },
+    {
+        name: "Tools",
+        skills: [
+            { skill: "Git", expert: true },
+            { skill: "VSCode", expert: true },
+            { skill: "Figma", expert: true },
+        ]
+    },
+    {
+        name: "Additional Skills",
+        skills: [
+            { skill: "SEO", expert: true },
+            { skill: "Leadership", expert: true },
+        ]
+    }
+]

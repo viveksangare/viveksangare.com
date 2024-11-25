@@ -1,0 +1,93 @@
+.flip-container {
+    perspective: 1000px;
+    width: 300px;
+    height: 300px;
+    position: relative;
+  }
+  
+  .flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+  }
+  
+  .flipper.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .front {
+    z-index: 2;
+  }
+  
+  .back {
+    transform: rotateY(180deg);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .biodata {
+    text-align: center;
+  }
+  
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .interactive-coffee {
+    cursor: pointer;
+  }
+  
+  .interactive-coffee:hover {
+    animation: shake 0.5s ease infinite;
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-3px);
+    }
+    75% {
+      transform: translateX(3px);
+    }
+  }
+
+  .svg-container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+  }
+  
+  .svg-container:hover #freepik--Coffee--inject-18 {
+    animation: shake 0.5s ease infinite;
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(-5px, 0);
+    }
+    50% {
+      transform: translate(5px, 0);
+    }
+    75% {
+      transform: translate(-3px, 0);
+    }
+  }
