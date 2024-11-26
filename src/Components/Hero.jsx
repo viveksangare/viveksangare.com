@@ -1,17 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Container,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemIcon,
-  ListItemText,
-  SvgIcon,
-  Tooltip,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 // import PhysicsCanvas from "./PhysicsCanvas";
 import { useTheme } from "@emotion/react";
@@ -91,9 +78,10 @@ export const Hero = () => {
           width: "100%",
           top: { xs: "-56px", sm: "-64px" },
           left: 0,
+          display: { xs: "none", sm: "block" },
         }}
       >
-        <RandomPhysicsCanvas/>
+        <RandomPhysicsCanvas />
       </Box>
 
       {/* content container */}
@@ -107,7 +95,7 @@ export const Hero = () => {
           flexDirection: { xs: "column", sm: "row" },
           alignItems: "center",
           justifyContent: "center",
-          padding:"1rem"
+          padding: "1rem",
         }}
       >
         <Box

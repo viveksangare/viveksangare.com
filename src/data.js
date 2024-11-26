@@ -9,12 +9,13 @@ export const navItems = [
     { value: "Projects", link: "/projects" },
 ];
 
-// nav icons
+// nav icons - dont change the sequence (it may break logic on 'Contact Me' section on Home)
 export const navIcons = [
     {
         name: "Email",
         icon: createElement(EmailIcon),
         link: "mailto:viveksangare23@gmail.com",
+        value:"viveksangare23@gmail.com"
     },
     {
         name: "Linkedin",

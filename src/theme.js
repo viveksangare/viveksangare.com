@@ -59,6 +59,7 @@ const commonOverrides = {
 const colors = {
     light: {
         background: '#def2f1',  // Main background
+        backgroundVariation: '#C5E8E6', // Main background dark varitaion
         bubble: '#CDEBEA', //bubble fill color - slight darker than bg
         paper: '#feffff',       // Surface color
         textPrimary: '#17252a', // Primary text
@@ -68,6 +69,7 @@ const colors = {
     },
     dark: {
         background: '#17252a',  // Main background
+        backgroundVariation: '#243A42', // Main background light variation
         bubble: '#1B2C32', //bubble fill color - slight lighter than bg
         paper: '#2b7a78',       // Surface color
         textPrimary: '#feffff', // Primary text
@@ -85,7 +87,8 @@ export const lightTheme = createTheme({
             default: colors.light.background, // App's main background
             paper: colors.light.paper,       // Surface background
             header: "rgba(222, 242, 241, 0.2)", //Header background
-            bubble: colors.light.bubble
+            bubble: colors.light.bubble,
+            variation: colors.light.backgroundVariation
         },
         text: {
             primary: colors.light.textPrimary,   // Primary text color
@@ -126,7 +129,8 @@ export const darkTheme = createTheme({
             default: colors.dark.background, // App's main background
             paper: colors.dark.paper,       // Surface background
             header: "rgba(23, 37, 42, 0.2)", //Header background
-            bubble: colors.dark.bubble
+            bubble: colors.dark.bubble,
+            variation: colors.dark.backgroundVariation
         },
         text: {
             primary: colors.dark.textPrimary,   // Primary text color

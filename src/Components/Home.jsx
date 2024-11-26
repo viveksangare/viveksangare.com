@@ -28,6 +28,8 @@ import "../styles/Home.css";
 import RandomPhysicsCanvas from "./RandomPhysicsCanvas";
 import ProgrammerSvg from "./ProgrammerSvg";
 import { Hero } from "./Hero";
+import AboutMe from "./AboutMe";
+import ContactMe from "./ContactMe";
 
 export default function Home() {
   const theme = useTheme();
@@ -35,7 +37,10 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Box sx={{height:"300px"}}></Box>
+      <Box sx={{ backgroundColor: theme.palette.background.bubble }}>
+        <AboutMe />
+        <ContactMe/>
+      </Box>
     </>
   );
 }
