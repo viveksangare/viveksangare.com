@@ -21,13 +21,13 @@ export default function SectionHeader({ title, quote }) {
           sx={{
             textTransform: "capitalize",
             fontWeight: 400,
-            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            fontSize: "clamp(2rem, 5vw, 3rem)",
             "&:after": {
               content: '""',
               height: "3px",
               backgroundColor: "red",
               display: "block",
-              width: "3.8rem",
+              width: "3rem",
               position: "relative",
               bottom: "2px",
             },

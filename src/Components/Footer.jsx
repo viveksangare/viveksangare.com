@@ -37,14 +37,21 @@ const Footer = () => {
             sx={{
               display: "flex",
               justifyContent: "center",
-              padding: {xs:"2px",sm:0},
+              padding: { xs: "2px", sm: 0 },
               flexWrap: "wrap",
             }}
           >
             {navIcons.map((item) => (
               <Button
                 key={item.name}
-                sx={{ color: theme.palette.text.primary, minWidth: 0 }}
+                sx={{
+                  color: theme.palette.text.primary,
+                  minWidth: 0,
+                  transition: "background-color 0ms, transform 250ms",
+                  "&:hover": {
+                    transform: "scale(1.2)",
+                  },
+                }}
               >
                 {item.icon}
               </Button>

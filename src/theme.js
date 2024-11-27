@@ -14,21 +14,21 @@ export const commonTypography = {
 };
 
 //global transitions
-const commonTransitions = {
-    duration: {
-        shortest: 150,
-        shorter: 200,
-        short: 250,
-        // most basic recommended timing
-        standard: 300,
-        // this is to be used in complex animations
-        complex: 375,
-        // recommended when something is entering screen
-        enteringScreen: 225,
-        // recommended when something is leaving screen
-        leavingScreen: 195,
-    },
-}
+// const commonTransitions = {
+//     duration: {
+//         shortest: 150,
+//         shorter: 200,
+//         short: 250,
+//         // most basic recommended timing
+//         standard: 300,
+//         // this is to be used in complex animations
+//         complex: 375,
+//         // recommended when something is entering screen
+//         enteringScreen: 225,
+//         // recommended when something is leaving screen
+//         leavingScreen: 195,
+//     },
+// }
 
 // common overrides
 const commonOverrides = {
@@ -117,7 +117,7 @@ export const lightTheme = createTheme({
         body2: { letterSpacing: '0.5px' },
     },
     otherTypographies: commonTypography,
-    transitions: commonTransitions,
+    // transitions: commonTransitions,
     components: commonOverrides
 });
 
@@ -159,7 +159,7 @@ export const darkTheme = createTheme({
         body2: { letterSpacing: '0.5px' },
     },
     otherTypographies: commonTypography,
-    transitions: commonTransitions,
+    // transitions: commonTransitions,
     components: commonOverrides
 });
 

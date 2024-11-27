@@ -42,7 +42,7 @@ export default function AboutMe() {
           Want to know more?{" "}
           <Button
             variant="text"
-            sx={{ color: "inherit", textDecoration: "underline" }}
+            sx={{ color: "inherit", textDecoration: "underline",transition: 'background-color 0ms' }}
           >
             Download My CV
           </Button>

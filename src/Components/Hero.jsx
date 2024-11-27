@@ -1,6 +1,5 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
-// import PhysicsCanvas from "./PhysicsCanvas";
 import { useTheme } from "@emotion/react";
 import "../styles/Home.css";
 import RandomPhysicsCanvas from "./RandomPhysicsCanvas";
@@ -68,6 +67,7 @@ export const Hero = () => {
       sx={{
         position: "relative",
         height: { xs: `calc(100vh - 56px)`, sm: `calc(100vh - 64px)` },
+        
       }}
     >
       {/* physics canvas */}
@@ -96,6 +96,7 @@ export const Hero = () => {
           alignItems: "center",
           justifyContent: "center",
           padding: "1rem",
+          
         }}
       >
         <Box
@@ -110,6 +111,7 @@ export const Hero = () => {
             flexDirection: "column",
             alignItems: "start",
             justifyContent: "center",
+            transition: "all 2500ms cubic-bezier(0.4, 0, 0.2, 1)"
           }}
         >
           <Typography

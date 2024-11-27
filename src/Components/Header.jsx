@@ -102,11 +102,10 @@ export default function Header(props) {
             backgroundColor: theme.palette.background.header,
             color: theme.palette.text.primary,
             backdropFilter: "blur(10px)",
-            transition: "all 250ms cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         >
           <Container>
-            <Toolbar >
+            <Toolbar>
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -137,7 +136,14 @@ export default function Header(props) {
                 {navItems.map((item) => (
                   <Button
                     key={item.value}
-                    sx={{ color: theme.palette.text.primary, fontWeight: 600 }}
+                    sx={{
+                      color: theme.palette.text.primary,
+                      fontWeight: 600,
+                      transition: "background-color 0ms, transform 250ms",
+                      "&:hover": {
+                        transform: "scale(1.1)",
+                      },
+                    }}
                   >
                     {item.value}
                   </Button>
@@ -147,7 +153,14 @@ export default function Header(props) {
                 {navIcons.map((item) => (
                   <Button
                     key={item.name}
-                    sx={{ color: theme.palette.text.primary, minWidth: 0 }}
+                    sx={{
+                      color: theme.palette.text.primary,
+                      minWidth: 0,
+                      transition: "background-color 0ms, transform 250ms",
+                      "&:hover": {
+                        transform: "scale(1.2)",
+                      },
+                    }}
                   >
                     {item.icon}
                   </Button>
